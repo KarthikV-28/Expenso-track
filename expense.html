@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Smart Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="expense.css">
+</head>
+
+<body>
+    <header>
+        <h1>SMART EXPENSE TRACKER</h1>
+        <button id="mode">🌙Darkmode</button>
+    </header><br>
+    <div id="container">
+        <div style="margin: 1% 0%;">
+            <form id="form">
+                <input type="text" id="tit" title="Enter Title" placeholder="Expense Title" required>
+
+                <input type="number" id="amt" min="0" max="100000" placeholder=" Amount" title="Enter Amount" required>
+
+                <select id="enter" required>
+                    <option value="" selected disabled>Select Category</option>
+                    <option value="🍔 Food">🍔 Food</option>
+                    <option value="🚌 Transport">🚌 Transport</option>
+                    <option value="🏠 Rent">🏠 Rent</option>
+                    <option value="🛍️ Shopping">🛍️ Shopping</option>
+                    <option value="🧾 Bills">🧾 Bills</option>
+                    <option value="🎬 Entertainment">🎬 Entertainment</option>
+                    <option value="🎓 Education">🎓 Education</option>
+                    <option value="🩺 Health">🩺 Health</option>
+                    <option value="📦 Others">📦 Others</option>
+                </select>
+
+                <input type="submit" value="Add Expense">
+            </form>
+        </div>
+        <hr style="border:1px solid gray ;"><br>
+
+
+        <div id="filter">
+            <select id="filters" required>
+                <option value="" selected disabled>Filter by Category</option>
+                <option value="📋 All">📋 All</option>
+                <option value="🍔 Food">🍔 Food</option>
+                <option value="🚌 Transport">🚌 Transport</option>
+                <option value="🏠 Rent">🏠 Rent</option>
+                <option value="🛍️ Shopping">🛍️ Shopping</option>
+                <option value="🧾 Bills">🧾 Bills</option>
+                <option value="🎬 Entertainment">🎬 Entertainment</option>
+                <option value="🎓 Education">🎓 Education</option>
+                <option value="🩺 Health">🩺 Health</option>
+                <option value="📦 Others">📦 Others</option>
+            </select>
+
+            <!-- restore native date picker (calendar) -->
+            <input type="date" id="dateFilter"  title="Filter by Date" placeholder="YYYY-MM-DD">
+
+        </div>
+
+
+        <div id="display">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="list">
+
+                </tbody>
+            </table>
+        </div>
+        <footer>
+            <div id="footer">
+                <h2 style="margin: 0px;">
+                    Total Expense: ₹ <span id="total-expense">0</span>
+                </h2>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

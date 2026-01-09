@@ -1,0 +1,518 @@
+body{
+    margin: 0px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7fbff; /* light mode page background */
+    color: #0b2133;
+}
+header{
+    background-color: #c2e8ff; /* stronger visible header color */
+    color: #072033;
+    height: 65px;
+    padding-top: .9%;
+}
+h1{
+    justify-self: center;
+    margin: 0px;
+    width: fit-content;
+    cursor:default;
+}
+#mode{
+    width: 7em;
+    height: 1.9em;
+    font: larger bold;
+    background-color: rgb(185, 185, 185);
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    position: absolute;
+    right: .5em;
+    top: .5em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+input{
+    font-size: large;
+    border-radius: 10px;
+    font-weight: bolder;
+    margin-left: 4%;
+}
+input[type="text"],input[type="number"]{
+    width: 19%;
+    height:2.25em;
+}
+#enter{
+    width: 19%;
+    height:2.5em;
+    font-size: large;
+    border-radius: 10px;
+    font-weight: bolder;
+    border: 1px solid black;
+    margin: 0px 6%;
+    background-color: lightgoldenrodyellow;
+    cursor: pointer;
+}
+input[type="submit"]{
+    width: 10%;
+    height: 2.5em;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color: rgb(50, 244, 50);
+    color: white;
+    transition: transform .5s ease-in-out;
+    cursor: pointer;
+}
+input::placeholder{
+    color:lightcoral;
+}
+#filters{
+    width: 15%;
+    height:2.5em;
+    font-size: medium;
+    border-radius: 10px;
+    font-weight: bolder;
+    background-color: lightcyan;
+    margin-left: 1%;
+    color: darkmagenta;
+    cursor: pointer;
+}
+#display{
+    margin-top: .1%;
+    width: 96%;
+    margin-left: 1%;
+    flex: 1 1 auto;
+    overflow-x: auto; /* allow horizontal scroll when cells are long */
+}
+/* FILTER BAR: keep category + date on a single line with a small gap;
+   allow wrap only on very narrow screens */
+#filter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.5rem;
+    margin-bottom: 0.75rem; /* keep them on one line */
+}
+
+
+
+/* keep the date control a fixed, reasonable width */
+#filter input[type="date"]{
+    flex: 0 0 160px;
+    max-width: 40%;
+}
+
+/* On very small screens allow wrapping so controls remain usable */
+@media (max-width: 420px){
+    #filter{ flex-wrap: wrap; gap: 0.5rem; }
+    #filters{ flex: 1 1 100%; }
+    #filter input[type="date"]{ flex: 0 0 100%; max-width: 100%; }
+}
+table{
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    font: larger bold Arial, Helvetica, sans-serif;
+}
+tr,th,td{
+    border: 1px solid black;
+    padding: 10px;
+    white-space: nowrap; /* prevent wrapping of table cell content */
+    vertical-align: middle; /* keep buttons centered */
+}
+#footer{
+    width: 100%;
+    background-color: #c2e8ff;
+    color: #072033;
+    height: 59px;
+    padding-top: .9%;
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+/* make header/footer stand out: subtle border and shadow */
+header, #footer{
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+#footer h2{
+    text-align: center;
+    margin: 0px;
+}
+#footer span{
+    color: darkred;
+    border: 1px solid black;
+    font-size: x-large;
+    border-radius: 10px; /* match inputs */
+    padding: 6px 10px;
+    display: inline-block;
+    width: 4em; /* same as input widths */
+    box-sizing: border-box;
+    text-align: center;
+}
+#container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-bottom: 0;
+}
+
+/* make hr visible and consistent */
+hr{
+    border: 0;
+    border-top: 1px solid gray;
+    margin: 1rem 0;
+    display: block;
+}
+input[type="submit"]:hover{
+    color:rgb(50, 244, 50) ;
+    background-color:green;
+    transform: scale(1.1);
+}
+header h1:hover{
+    color: rgb(99, 99, 221);
+}
+.delete-btn{
+    color: white;
+    background-color: red;
+    padding: 0.45rem 0.6rem;
+    font: 0.95rem "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    width: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.delete-btn:hover{
+    color: red;
+    background-color: rgb(103, 3, 3);
+    border: 2px solid red;
+}
+#mode:hover{
+    color: aliceblue;
+    background-color:rgb(67, 66, 66) ;
+}
+/* dark mode */
+body.dark{
+    background-color: #0b1724; /* darker deep blue */
+    color: #e6f2fb;
+}
+body.dark header{ /* header */
+    background-color: #062033; /* dark header */
+    color: #e6f2fb;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    border-bottom: 2px solid rgba(255,255,255,0.04);
+}
+body.dark input{ /* inputs tag*/
+    background-color: black;
+    color: white;
+    border: 1px solid gray;
+}
+body.dark #filters{ /*filters*/
+    background-color: lightsteelblue;
+    border: 1px solid gray;
+}
+body.dark table,
+body.dark th,
+body.dark td{
+    border: 1px solid white;
+}
+body.dark #footer{
+    background-color: #062033;
+    color: #cfe9ff;
+    box-shadow: 0 -1px 6px rgba(0,0,0,0.5);
+    border-top: 1px solid rgba(255,255,255,0.03);
+}
+body.dark #footer span{
+    color: lightcoral;
+    border-color: gray;
+}
+body.dark input[type="submit"]{background-color: green;}
+body.dark .delete-btn{
+    background-color: darkred;
+    color: white;
+}
+body.dark #enter{
+    background-color: rgb(217, 230, 242);
+    color: rgb(164, 68, 68);
+}
+body.dark header h1:hover{
+    color: rgb(151, 151, 235);
+}
+body.dark input[type="submit"]:hover{
+    color: green;
+    background-color:rgb(30, 213, 30);
+}
+body.dark .delete-btn:hover{
+    color:  rgb(103, 3, 3);
+    background-color:rgb(255, 61, 61);
+}
+body.dark #mode{
+    background-color:skyblue;
+}
+body.dark #mode:hover{
+    background-color:rgb(82, 131, 150);
+}
+
+/* =====darkmode : options colors ===== */
+body.dark option[value="🍔 Food"]{
+    background-color: sienna;
+    color: gold;
+}
+body.dark option[value="🚌 Transport"]{
+    background-color: midnightblue;
+    color: lightskyblue;
+}
+body.dark option[value="🏠 Rent"]{
+    background-color: darkslateblue;
+    color: violet;
+}
+body.dark option[value="🛍️ Shopping"]{
+    background-color: darkred;
+    color: lightcoral;
+}
+body.dark option[value="🧾 Bills"]{
+    background-color: saddlebrown;
+    color: wheat;
+}
+body.dark option[value="🎬 Entertainment"]{
+    background-color: purple;
+    color: hotpink;
+}
+body.dark option[value="🎓 Education"]{
+    background-color: darkgreen;
+    color: lightgreen;
+}
+body.dark option[value="🩺 Health"]{
+    background-color: seagreen;
+    color: mediumspringgreen;
+}
+body.dark option[value="📦 Others"]{
+    background-color: darkslategray;
+    color: silver;
+}
+
+/* =====lightmode : options colors ===== */
+option[value = "📋 All"]{
+    color: #7a0020;
+    background-color: #ffecec;
+    border-radius: 6px;
+    padding: 4px 6px;
+}
+
+/* dark mode styling for the All option */
+body.dark option[value = "📋 All"]{
+    color: #ffdcdc;
+    background-color: #4b1220;
+    border-radius: 6px;
+    padding: 4px 6px;
+}
+option[value="🍔 Food"]{
+    background-color: moccasin;
+    color: darkorange;
+}
+option[value="🚌 Transport"]{
+    background-color: lightblue;
+    color: navy;
+}
+option[value="🏠 Rent"]{
+    background-color: lavender;
+    color: indigo;
+}
+option[value="🛍️ Shopping"]{
+    background-color: mistyrose;
+    color: crimson;
+}
+option[value="🧾 Bills"]{
+    background-color: wheat;
+    color: saddlebrown;
+}
+option[value="🎬 Entertainment"]{
+    background-color: pink;
+    color: deeppink;
+}
+option[value="🎓 Education"]{
+    background-color: honeydew;
+    color: seagreen;
+}
+option[value="🩺 Health"]{
+    background-color: palegreen;
+    color: darkgreen;
+}
+option[value="📦 Others"]{
+    background-color: lightgray;
+    color: dimgray;
+}
+
+/* NORMAL MODE */
+#filter input[type="date"] {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* DARK MODE */
+body.dark #filter input[type="date"] {
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #555;
+}
+#filter input[type="date"]:focus{
+    border-color: #4da6ff;
+    box-shadow: 0 0 5px #4da6ff;
+}
+body:not(.dark) #filter input {
+    background-color: #fff;
+    color: #000;
+    color-scheme: light;
+}
+body.dark #filter input {
+    background-color: #111;
+    color: #fff;
+    color-scheme: dark;
+}
+/* ============ RESPONSIVE (≤700px) ============ */
+@media (max-width: 700px) {
+
+    /* ONLY EXPENSE FORM → STACKED, FULL-WIDTH TOUCH TARGETS */
+    #form{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 0 0.5rem;
+    }
+
+    #form input[type="text"],
+    #form input[type="number"],
+    #form select,
+    #form input[type="submit"]{
+        width: 100%;
+        margin-left: 0;
+        font-size: 1rem;
+        padding: 0.6rem 0.75rem;
+        min-height: 44px;
+        box-sizing: border-box;
+    }
+
+    /* ensure the select (id=enter) matches full-width behaviour */
+    #enter{
+        margin: 0;
+        width: 100%;
+    }
+
+    /* make submit clearly tappable */
+    input[type="submit"]{
+        width: 100%;
+        padding: 0.65rem;
+        font-size: 1rem;
+    }
+
+    /* TABLE: let it fit the container and allow wrapping instead of forcing a large min-width */
+    #display{
+        overflow-x: auto; /* keep scroll only if absolutely needed */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table{ min-width: 0; }
+
+    /* Header + darkmode button adjustments for mobile */
+    header{
+        height: auto;
+        padding: 0.6rem 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    header h1{
+        font-size: 1.05rem;
+        margin: 0;
+        width: auto;
+        text-align: left;
+    }
+
+    /* make the darkmode button compact and participate in flow */
+    #mode{
+        position: relative;
+        right: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.95rem;
+        border-radius: 8px;
+    }
+
+    /* Keep filter controls on one line on mobile; allow the category to shrink */
+    #filter{
+        display: flex;
+        flex-direction: row;
+        gap: 0.6rem;
+        padding: 0 0.5rem;
+        align-items: center;
+        flex-wrap: nowrap; /* never wrap to next line */
+        overflow-x: auto; /* if space is tight, allow horizontal scroll */
+    }
+
+    /* category select: shrink when needed but take remaining space */
+    #filters{
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: calc(80% - 110px); 
+        font-size: 0.98rem;
+        box-sizing: border-box;
+        padding: 0.14rem 0.35rem;
+        height: 2.25em;
+    }
+
+    /* date control: fixed width so it stays on the same row */
+    #filter input[type="date"]{
+        flex: 0 0 100px;
+        width: 50%;
+        box-sizing: border-box;
+        height: 2.25em;
+        padding: 0.12rem 0.3rem;
+    }
+
+    /* Make delete and other buttons usable and prevent overflow */
+    .delete-btn{
+        width: auto;
+        display: inline-block;
+        padding: 0.45rem 0.6rem;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+
+    /* ensure controls never exceed their container */
+    button, input, select{
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 400px) {
+    /* slight adjustments for very small screens */
+    #form input[type="text"],
+    #form input[type="number"],
+    #form select,
+    #form input[type="submit"]{
+        font-size: 0.95rem;
+        padding: 0.5rem 0.6rem;
+    }
+
+    table{
+        min-width: 360px;
+    }
+}
