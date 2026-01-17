@@ -8,6 +8,7 @@ const span = document.getElementById('total-expense');
 // ==== filters ====
 const filterSelect = document.getElementById('filters');
 const dateFilter = document.getElementById('dateFilter');
+const clearDateBtn = document.getElementById('clearDateBtn');
 
 // ==== theme ====
 const mode = document.getElementById('mode');
@@ -128,17 +129,19 @@ function applyFilters(){
 filterSelect.addEventListener("change", applyFilters);
 dateFilter.addEventListener("input", applyFilters);
 
+// ======== CLEAR DATE FILTER ========
+clearDateBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    dateFilter.value = "";
+    applyFilters();
+});
+
 // ======== LOAD DATA ON PAGE LOAD ========
 window.addEventListener('DOMContentLoaded', () => {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     expenses.forEach( exp => addExpenseRow(exp));
 
     applyFilters();
-
-    // ensure date filter shows a value on mobile (many mobile browsers hide placeholder for type=date)
-    if(dateFilter && !dateFilter.value){
-        dateFilter.value = new Date().toISOString().split('T')[0];
-    }
 
     // Load theme
     const theme = localStorage.getItem('theme') || 'light';

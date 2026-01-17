@@ -94,12 +94,48 @@ input::placeholder{
     margin-bottom: 0.75rem; /* keep them on one line */
 }
 
+/* Date filter container */
+.date-filter-container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 
+/* Clear date button */
+#clearDateBtn{
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#clearDateBtn:hover{
+    background-color: #ff5252;
+}
+
+body.dark #clearDateBtn{
+    background-color: #cc5555;
+}
+
+body.dark #clearDateBtn:hover{
+    background-color: #ff6b6b;
+}
 
 /* keep the date control a fixed, reasonable width */
 #filter input[type="date"]{
-    flex: 0 0 160px;
-    max-width: 40%;
+    flex: 0 0 200px;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
 }
 
 /* On very small screens allow wrapping so controls remain usable */
