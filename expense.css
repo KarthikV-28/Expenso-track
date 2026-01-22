@@ -3,27 +3,28 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #f7fbff; /* light mode page background */
-    color: #0b2133;
+    background-color: #f5f8fa;
 }
 header{
-    background-color: #c2e8ff; /* stronger visible header color */
-    color: #072033;
+    background: linear-gradient(90deg, royalblue 0%, mediumpurple 100%);
+    color: white;
     height: 65px;
     padding-top: .9%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 h1{
     justify-self: center;
     margin: 0px;
     width: fit-content;
     cursor:default;
+    transition: all .5s;
 }
 #mode{
     width: 7em;
     height: 1.9em;
     font: larger bold;
-    background-color: rgb(185, 185, 185);
-    color: rgb(0, 0, 0);
+    background: linear-gradient(90deg, dodgerblue 0%, slateblue 100%);
+    color: white;
     font-family: sans-serif;
     position: absolute;
     right: .5em;
@@ -57,9 +58,9 @@ input[type="submit"]{
     height: 2.5em;
     padding: 10px;
     border: 1px solid #000;
-    background-color: rgb(50, 244, 50);
+    background-color: limegreen;
     color: white;
-    transition: transform .5s ease-in-out;
+    transition: all .45s ease-in-out;
     cursor: pointer;
 }
 input::placeholder{
@@ -71,10 +72,11 @@ input::placeholder{
     font-size: medium;
     border-radius: 10px;
     font-weight: bolder;
-    background-color: lightcyan;
+    background-color: aliceblue;
     margin-left: 1%;
-    color: darkmagenta;
+    color: darkblue;
     cursor: pointer;
+    border: 2px solid cornflowerblue;
 }
 #display{
     margin-top: .1%;
@@ -119,11 +121,12 @@ input::placeholder{
 }
 
 body.dark #clearDateBtn{
-    background-color: #cc5555;
+    background-color: crimson;
+    color: white;
 }
 
 body.dark #clearDateBtn:hover{
-    background-color: #ff6b6b;
+    background-color: tomato;
 }
 
 /* keep the date control a fixed, reasonable width */
@@ -145,22 +148,24 @@ body.dark #clearDateBtn:hover{
     #filter input[type="date"]{ flex: 0 0 100%; max-width: 100%; }
 }
 table{
-    border: 1px solid black;
+    border: 1px solid #ddd;
     text-align: center;
     width: 100%;
     border-collapse: collapse;
     font: larger bold Arial, Helvetica, sans-serif;
+    background-color: white;
+    border-radius: 3px;
 }
 tr,th,td{
-    border: 1px solid black;
+    border: 1px solid #363636;
     padding: 10px;
     white-space: nowrap; /* prevent wrapping of table cell content */
     vertical-align: middle; /* keep buttons centered */
 }
 #footer{
     width: 100%;
-    background-color: #c2e8ff;
-    color: #072033;
+    background-color: lightskyblue;
+    color: midnightblue;
     height: 59px;
     padding-top: .9%;
     margin-top: 0;
@@ -177,8 +182,9 @@ header, #footer{
     margin: 0px;
 }
 #footer span{
-    color: darkred;
-    border: 1px solid black;
+    color: crimson;
+    border: 2px solid firebrick;
+    background-color: lavenderblush;
     font-size: x-large;
     border-radius: 10px; /* match inputs */
     padding: 6px 10px;
@@ -203,16 +209,19 @@ hr{
     display: block;
 }
 input[type="submit"]:hover{
-    color:rgb(50, 244, 50) ;
-    background-color:green;
-    transform: scale(1.1);
+    color:white ;
+    background-color:forestgreen;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rbga(34, 139, 34, 0.3);
 }
 header h1:hover{
-    color: rgb(99, 99, 221);
+    color:  lavender;
+    text-shadow: 0 0 8px  rgba(255, 255, 255, 0.7);
+    transform: translateY(-2px);
 }
 .delete-btn{
     color: white;
-    background-color: red;
+    background-color: firebrick;
     padding: 0.45rem 0.6rem;
     font: 0.95rem "Segoe UI", Arial, sans-serif;
     font-weight: 600;
@@ -222,9 +231,11 @@ header h1:hover{
     white-space: nowrap;
 }
 .delete-btn:hover{
-    color: red;
-    background-color: rgb(103, 3, 3);
-    border: 2px solid red;
+    color: white;
+    background-color: darkred;
+    border: 2px solid tomato;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(139, 0, 0, 0.3);
 }
 #mode:hover{
     color: aliceblue;
@@ -232,32 +243,34 @@ header h1:hover{
 }
 /* dark mode */
 body.dark{
-    background-color: #0b1724; /* darker deep blue */
-    color: #e6f2fb;
+    background-color: #1a202c; /* darker deep blue */
+    color: whitesmoke;
 }
 body.dark header{ /* header */
-    background-color: #062033; /* dark header */
-    color: #e6f2fb;
+    background-color: #1a1a2e; 
+    color: #e2e8f0;
     box-shadow: 0 1px 8px rgba(0,0,0,0.6);
     border-bottom: 2px solid rgba(255,255,255,0.04);
 }
 body.dark input{ /* inputs tag*/
-    background-color: black;
-    color: white;
-    border: 1px solid gray;
+    background-color: darkslategray;
+    color: whitesmoke;
+    border: 2px solid steelblue;
 }
 body.dark #filters{ /*filters*/
-    background-color: lightsteelblue;
-    border: 1px solid gray;
+    background-color: slateblue;
+    color: lavender;
+    border: 2px solid mediumslateblue;
 }
 body.dark table,
 body.dark th,
 body.dark td{
-    border: 1px solid white;
+    border: 1px solid #4a5568;
+    background-color: #2d3748;
 }
 body.dark #footer{
-    background-color: #062033;
-    color: #cfe9ff;
+    background-color: #1a1a2e;
+    color: lightsteelblue;
     box-shadow: 0 -1px 6px rgba(0,0,0,0.5);
     border-top: 1px solid rgba(255,255,255,0.03);
 }
@@ -265,31 +278,40 @@ body.dark #footer span{
     color: lightcoral;
     border-color: gray;
 }
-body.dark input[type="submit"]{background-color: green;}
+body.dark input[type="submit"]{
+    background-color: forestgreen;
+    color: white;
+    border: 2px solid limegreen;
+}
 body.dark .delete-btn{
     background-color: darkred;
     color: white;
 }
 body.dark #enter{
-    background-color: rgb(217, 230, 242);
-    color: rgb(164, 68, 68);
+    background-color: midnightblue;
+    color: lightblue;
+    border: 2px solid dodgerblue;
 }
 body.dark header h1:hover{
-    color: rgb(151, 151, 235);
+    color: lightsteelblue;
+    text-shadow: 0, 0, 10px rbga(176, 196, 2222, 0.8);
 }
 body.dark input[type="submit"]:hover{
-    color: green;
-    background-color:rgb(30, 213, 30);
+    color: white;
+    background-color:limegreen;
+    box-shadow: 0 0 15px rgba(50, 205, 50, 0.5);
 }
 body.dark .delete-btn:hover{
-    color:  rgb(103, 3, 3);
-    background-color:rgb(255, 61, 61);
+    color:  white;
+    background-color:#ff4444;
+    border-color: #ff6666;
+    box-shadow: 0 0 10px rbga(255, 68, 68, 0.4);
 }
 body.dark #mode{
-    background-color:skyblue;
+    background-color:steelblue;
 }
 body.dark #mode:hover{
-    background-color:rgb(82, 131, 150);
+    background-color:#5a9;
 }
 
 /* =====darkmode : options colors ===== */
@@ -396,9 +418,9 @@ option[value="📦 Others"]{
 
 /* DARK MODE */
 body.dark #filter input[type="date"] {
-    background-color: #111;
-    color: #fff;
-    border: 1px solid #555;
+    background-color: darkslateblue;
+    color: lightsteelblue;
+    border: 2px solid royalblue;
 }
 #filter input[type="date"]:focus{
     border-color: #4da6ff;
@@ -551,4 +573,21 @@ body.dark #filter input {
     table{
         min-width: 360px;
     }
+}
+#form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+body.dark #form{
+    background-color: darkslategray;
+    border: 2px solid steelblue;
+    border-radius: 10px;
+    padding: 20px;
+}
+body.dark input::placeholder{
+    color: lightgray;
+    opacity: 0.7;
 }

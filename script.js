@@ -21,7 +21,7 @@ function addExpenseRow(expense){
     <td>${expense.title}</td>
     <td>${expense.category}</td>
     <td class="amt">₹${expense.amount}</td>
-    <td><button class="delete-btn">Delete</button></td>
+    <td><button class="delete-btn" title="Delete">Delete</button></td>
     `;
 
     tabledata.appendChild(tr);
