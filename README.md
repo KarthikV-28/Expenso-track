@@ -11,7 +11,7 @@ A clean, responsive expense tracking application with dark/light mode support. T
 - 🎨 **Modern UI** - Clean, user-friendly design with smooth animations
 
 ## 🚀 Live Demo
-**[👉 Try it Live Here](https://expenso-track.vercel.app)**  
+**[👉 Try it Live Here](https://expenso-track-omega.vercel.app/)**  
 *(Deploying on Vercel for best performance)*
 
 ## 🛠️ Technologies Used
